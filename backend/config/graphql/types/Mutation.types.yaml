@@ -1,0 +1,26 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      user:
+        type: UserPayload!
+        resolve: '@=resolver("App\\GraphQL\\Resolver\\UserResolver::create", [args["input"]["email"], args["input"]["password"]])'
+        args:
+          input:
+            type: UserInput!
+
+UserPayload:
+  type: object
+  config:
+    fields:
+      user:
+        type: User
+
+UserInput:
+  type: input-object
+  config:
+    fields:
+      email:
+        type: "String!"
+      password:
+        type: "String!"

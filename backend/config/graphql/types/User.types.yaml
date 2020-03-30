@@ -1,0 +1,9 @@
+User:
+  type: object
+  config:
+    resolveField: '@=resolver("App\\GraphQL\\Resolver\\UserResolver", [info, value, args])'
+    fields:
+      id:
+        type: Int
+      email:
+        type: String
